@@ -1,0 +1,10 @@
+33.49.147.163			20140101014611	http://news.rambler.ru/3105700	378	431	Safari/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0; .NET CLR 3.5.30729;) n
+197.72.248.141			20140101020306	http://news.mail.ru/6344933	1412	203	Safari/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; .NET CLR 3.5.30729; .NET CLR 3.0.30729; n
+33.49.147.163			20140101023103	http://lenta.ru/4303000	1189	451	Chrome/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0)n
+75.208.40.166			20140101032909	http://newsru.com/3330815	60	306	Safari/5.0 (Windows; U; MSIE 9.0; Windows NT 8.1; Trident/5.0; .NET4.0E; en-AU)n
+197.72.248.141			20140101033626	http://newsru.com/1588977	736	307	Chrome/5.0 (compatible; MSIE 9.0; Windows NT 8.0; WOW64; Trident/5.0; .NET CLR 2.7.40781; .NET4.0E; en-SG)n
+222.131.187.37			20140101033837	http://news.mail.ru/8805842	1017	416	Opera/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0; .NET CLR 3.5.30729;) n
+197.72.248.141			20140101034726	http://news.rambler.ru/2816512	2042	428	Safari/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0; .NET CLR 3.5.30729;) n
+33.49.147.163			20140101041149	http://lenta.ru/5276738	444	203	Chrome/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0; .NET CLR 2.0.50727; SLCC2; .NET CLR 3.5.30729)n
+197.72.248.141			20140101050543	http://news.yandex.ru/5241176	1197	500	Chrome/5.0 (Windows; U; MSIE 9.0; Windows NT 8.1; Trident/5.0; .NET4.0E; en-AU)n
+181.217.177.35			20140101052930	http://lenta.ru/4386687	1976	100	Safari/5.0 compatible; MSIE 9.0; Windows NT 7.0; Trident/5.0; .NET CLR 2.2.50767;)n

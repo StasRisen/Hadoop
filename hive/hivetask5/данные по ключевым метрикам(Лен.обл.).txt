@@ -1,0 +1,18 @@
+logs = 10092 - total rows
+user = 8592 - total rows
+IPRegions = 8702 - total rows
+time примерно 40 минут
+Leningrad oblast = 66103494	28825651
+
+10% percent , time - 3 минуты
+Leningrad Oblast        160904  73253
+
+30% percent, time - примерно 7 минут
+Leningrad Oblast        3257551 1444976
+
+
+50% percent, time - 23  минуты
+Leningrad Oblast        21774561        9364559
+
+70% percent, time -36
+Leningrad Oblast        37936959        16254495

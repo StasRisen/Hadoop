@@ -1,0 +1,85 @@
+add jar /opt/cloudera/parcels/CDH/lib/hive/lib/hive-serde.jar;
+
+USE <db>;
+
+DROP TABLE IF EXISTS Subnets;
+CREATE EXTERNAL TABLE Subnets (
+	ip STRING,
+    	mask STRING
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.RegexSerDe'
+WITH SERDEPROPERTIES (
+    "input.regex" ='^((?:\\d{1,3}\\.){3}\\d{1,3})\\s+(.*)$'
+)
+STORED AS TEXTFILE
+LOCATION '/data/subnets/variant1';
+
+
+DROP TABLE IF EXISTS Logs_temp;
+CREATE EXTERNAL TABLE Logs_temp (
+	ip STRING,
+	date_  INT,
+	http_ STRING,
+	size_ INT,
+	code INT,
+	client_app STRING
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.RegexSerDe'
+WITH SERDEPROPERTIES (
+    "input.regex" ='^((?:\\d{1,3}\.){3}\\d{1,3})\\s+(\\d{8})\\d+\\s+((?:ht|f)tps?\://(?:www)?\\S+)+\\s+(\\d{1,})\\s+(\\d{1,})\\s+(.*)$'
+)						
+STORED AS TEXTFILE
+LOCATION '/data/user_logs/user_logs_M';
+
+SET hive.exec.dynamic.partition.mode=nonstrict;
+
+DROP TABLE IF EXISTS Logs;
+CREATE EXTERNAL TABLE Logs (
+   	ip STRING,
+	http_ STRING,
+	size_ INT,
+	code INT,
+	client_app STRING
+)
+PARTITIONED BY (date_  INT)
+STORED AS TEXTFILE;
+
+SET hive.exec.max.dynamic.partitions.pernode=120;
+
+
+INSERT OVERWRITE TABLE Logs PARTITION (date_)
+SELECT ip,http_,size_,code,client_app,date_ FROM Logs_temp;
+
+
+DROP TABLE IF EXISTS Users;
+CREATE EXTERNAL TABLE Users (
+	ip STRING,
+	browser STRING,
+	sex STRING,
+	age INT
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.RegexSerDe'
+WITH SERDEPROPERTIES (
+    "input.regex" ='^((?:\\d{1,3}\.){3}\\d{1,3})\\s+(\\w+\/?\\d?\\d?.?\\d?)\\s+(\\w+)\\s+(.*)$'
+)
+STORED AS TEXTFILE
+LOCATION '/data/user_logs/user_data_M';
+
+DROP TABLE IF EXISTS IPRegions;
+CREATE EXTERNAL TABLE IPRegions (
+	ip STRING,
+	region STRING
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.RegexSerDe'
+WITH SERDEPROPERTIES (
+    "input.regex" ='^((?:\\d{1,3}\\.){3}\\d{1,3})\\s+(.*)$'
+)
+STORED AS TEXTFILE
+LOCATION '/data/user_logs/ip_data_M/';
+
+
+
+SELECT * FROM Subnets LIMIT 10;
+SELECT * FROM Logs LIMIT 10;
+SELECT * FROM Users LIMIT 10;
+SELECT * FROM IPRegions LIMIT 10;
